@@ -2,6 +2,8 @@
 import HelloWorld from './components/HelloWorld.vue'
 // import TheWelcome from './components/TheWelcome.vue'
 import ListaVue from './components/Lista.vue';
+import VIfVue from './components/V-If.vue';
+import VOfVue from './components/V-of.vue';
 </script>
 
 <template>
@@ -15,6 +17,10 @@ import ListaVue from './components/Lista.vue';
 
   <main>
     <ListaVue/>
+    <hr/>
+    <VIfVue/>
+    <hr/>
+    <VOfVue/>
     <!-- <TheWelcome /> -->
   </main>
 </template>
