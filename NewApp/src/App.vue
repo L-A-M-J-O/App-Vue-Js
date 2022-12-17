@@ -4,6 +4,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import ListaVue from './components/Lista.vue';
 import VIfVue from './components/V-If.vue';
 import VOfVue from './components/V-of.vue';
+import EventosVue from './components/Eventos.vue';
 </script>
 
 <template>
@@ -21,6 +22,8 @@ import VOfVue from './components/V-of.vue';
     <VIfVue/>
     <hr/>
     <VOfVue/>
+    <hr/>
+    <EventosVue/>
     <!-- <TheWelcome /> -->
   </main>
 </template>

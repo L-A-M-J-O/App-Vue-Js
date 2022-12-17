@@ -47,5 +47,11 @@
       </li>
     </ul>
     <p v-for="(value, element) in objeto">{{value}} : {{element}} </p>
+    <h2>Animales con condiciones</h2>
+    <ul v-for="item in animales" :key="item.name">
+      <li v-if="item.stock > 5" >
+        <p>{{item.name}}</p>
+      </li>
+    </ul>
   </div>
 </template>
