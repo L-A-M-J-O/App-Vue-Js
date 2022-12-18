@@ -1,10 +1,11 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 // import TheWelcome from './components/TheWelcome.vue'
-import ListaVue from './components/Lista.vue';
-import VIfVue from './components/V-If.vue';
-import VOfVue from './components/V-of.vue';
-import EventosVue from './components/Eventos.vue';
+import Lista from './components/Lista.vue';
+import VIf from './components/V-If.vue';
+import VOf from './components/V-of.vue';
+import Eventos from './components/Eventos.vue';
+import Pokemons from './components/Pokemons.vue';
 </script>
 
 <template>
@@ -17,15 +18,16 @@ import EventosVue from './components/Eventos.vue';
   </header>
 
   <main>
-    <ListaVue/>
+    <Lista/>
     <hr/>
-    <VIfVue/>
+    <VIf/>
     <hr/>
-    <VOfVue/>
+    <VOf/>
     <hr/>
-    <EventosVue/>
+    <Eventos/>
     <!-- <TheWelcome /> -->
   </main>
+  <Pokemons/>
 </template>
 
 <style scoped>
