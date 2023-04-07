@@ -11,9 +11,6 @@
 
   const DataAprobada = ref([])
   const value = ref('')
-  onMounted(() => {
-
-  })
 
 </script>
 <template>
