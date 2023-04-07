@@ -1,15 +1,31 @@
+<script setup lang="ts">
+  import { ref, onMounted } from 'vue';
+  import axios from 'axios'
+  import EntitiesForwarder from '@/components/EntitiesForwarder.vue';
+  import EntitiesForwarderOne from '@/components/EntitiesForwarderOne.vue';
+
+  const users = ref([]);
+  const userAprobado = ref([])
+
+  const getUsers = (() => {
+    axios.get('https://randomuser.me/api/')
+        .then(response => {
+          users.value = response.data.results
+          console.log(users.value )
+        })
+        .catch((error) => console.log(error))
+  })
+  onMounted(() => {
+    getUsers();
+  })
+
+</script>
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="container">
+    <div class="row">
+      <h5>Vista de Formulario</h5>
+      <EntitiesForwarder v-bind:users="users"/>
+    </div>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
