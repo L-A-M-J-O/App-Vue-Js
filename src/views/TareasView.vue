@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { useStore } from "vuex";
 import { ref, defineProps, reactive, onMounted } from 'vue';
 
+const store = useStore();
 const props = defineProps({
   id: Number,
   descripcion: String,
@@ -11,6 +13,7 @@ interface LabeledValue {
   file_id: string;
   type_id: string;
   forwarder_id: string;
+  port_id: string;
 }
 
 const value = ref([])
@@ -39,6 +42,7 @@ const ruta = ref<LabeledValue[]>([{
     file_id: '',
     type_id: '',
     forwarder_id: '',
+    port_id: '',
 }])
 
 const agregarRuta = () => {
@@ -48,6 +52,7 @@ const agregarRuta = () => {
     file_id: '',
     type_id: '',
     forwarder_id: '',
+    port_id: '',
   })
   console.log(`agregar`, ruta.value.length + 1)
 }
@@ -70,7 +75,7 @@ onMounted(() => {
         <button @click="agregarRuta">Agregar tarea</button>
       <div v-for="element in ruta">
         <button @click="eliminarRuta(element.id)">Eliminar</button>
-        <el-select v-model="element.file_id" filterable placeholder="Select">
+        <el-select v-model="element.file_id" clearable filterable placeholder="Select">
           <el-option
             v-for="item in address"
             :key="item.value"
@@ -78,7 +83,7 @@ onMounted(() => {
             :value="item.value"
           />
         </el-select>
-        <el-select v-model="element.type_id" filterable placeholder="Select">
+        <el-select v-show="!element.type_id" v-model="element.port_id" clearable filterable placeholder="Select">
           <el-option
             v-for="item in file"
             :key="item.value"
@@ -86,7 +91,15 @@ onMounted(() => {
             :value="item.value"
           />
         </el-select>
-        <el-select v-model="element.forwarder_id" filterable placeholder="Select">
+        <el-select v-show="!element.port_id" v-model="element.type_id" clearable filterable placeholder="Select">
+          <el-option
+            v-for="item in file"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
+        <el-select v-model="element.forwarder_id" clearable filterable placeholder="Select">
           <el-option
             v-for="item in file"
             :key="item.value"
@@ -96,6 +109,9 @@ onMounted(() => {
         </el-select>
       </div>
       <button type="submit">Save</button>
+      <div>
+        <button @click="store.state.count++">Increment Count</button>
+      </div>
     </form>
   </section>
 </template>
