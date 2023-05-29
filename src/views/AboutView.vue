@@ -3,6 +3,7 @@
   import axios from 'axios'
   import EntitiesForwarder from '@/components/EntitiesForwarder.vue';
   import EntitiesForwarderOne from '@/components/EntitiesForwarderOne.vue';
+  import VoyageMaritime from '@/components/VoyageMaritime.vue';
 
   const users = ref([]);
   const userAprobado = ref([])
@@ -25,6 +26,7 @@
     <div class="row">
       <h5>Vista de Formulario</h5>
       <EntitiesForwarder v-bind:users="users"/>
+      <VoyageMaritime />
     </div>
   </div>
 </template>
