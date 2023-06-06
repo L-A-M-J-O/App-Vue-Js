@@ -92,6 +92,23 @@ const datosVoyaga = ref({
   updated: "202:58",
   ms: 2,
 });
+interface MiInterfaz {
+  miArray: string[];
+}
+
+interface Objeto {
+  miPropiedad: string[];
+}
+
+// Creación del objeto con la propiedad miPropiedad
+const miObjeto: Objeto = {
+  miPropiedad: ["elemento1", "elemento2", "elemento3"]
+};
+
+// Asignación del objeto a la propiedad miArray de la interfaz
+const miInterfaz: MiInterfaz = {
+  miArray: miObjeto.miPropiedad
+};
 const value = ref();
 const selectVoyage = ref({
   list: [],
