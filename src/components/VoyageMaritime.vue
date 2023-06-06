@@ -76,19 +76,14 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 const opcion1 = ref(true);
 const opcion2 = ref(false);
 const opcion3 = ref(false);
 const select1 = ref();
 const select2 = ref();
 const select3 = ref();
-onMounted(() => {
-  if (datosVoyaga.value) {
-    selectVoyage.value.options.push(datosVoyaga.value);
-    select1.value = selectVoyage.value.options[0];
-  }
-});
+
 const datosVoyaga = ref({
   base: "USD",
   result: {
@@ -182,6 +177,12 @@ const selectVoyage = ref({
       ms: 2,
     },
   ],
+});
+onMounted(() => {
+  if (datosVoyaga.value) {
+    selectVoyage.value.options.push(datosVoyaga.value);
+    select1.value = datosVoyaga.value.updated
+  }
 });
 </script>
 <style>
